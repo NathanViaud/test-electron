@@ -19,11 +19,11 @@ jobs:
         with:
           name: test-results
           path: ./junit.xml
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: success() || failure() && github.event.pull_request.head.repo.fork == false
-        with:
-          name: JEST Tests            # Name of the check run which will be created
-          path: ./junit.xml    # Path to test results
-          reporter: jest-junit        # Format of test results
+#      - name: Test Report
+#        uses: dorny/test-reporter@v1
+#        if: success() || failure() && github.event.pull_request.head.repo.fork == false
+#        with:
+#          name: JEST Tests            # Name of the check run which will be created
+#          path: ./junit.xml    # Path to test results
+#          reporter: jest-junit        # Format of test results
             
