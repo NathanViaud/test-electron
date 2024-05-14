@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "main": "dist/main.js",
     "scripts": {
-        "test": "jest",
+        "test": "jest --ci --reporters=default --reporters=jest-junit",
         "start": "npm run build && electron .",
         "build": "tsc",
         "postbuild": "copyfiles -u 1 src/index.html dist"
