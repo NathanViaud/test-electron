@@ -19,3 +19,6 @@ jobs:
         with:
           name: test-results
           path: ./junit.xml
+      - name: Test Reporter
+        uses: dorny/test-reporter@v1.9.1
+            
