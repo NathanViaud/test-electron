@@ -25,5 +25,5 @@ jobs:
         with:
           name: Test Report
           path: ./junit.xml
-          reporter: junit
+          reporter: jest-junit
           github-token: ${{ secrets.GITHUB_TOKEN }}
