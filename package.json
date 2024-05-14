@@ -1,0 +1,21 @@
+{
+    "name": "electron-app",
+    "version": "1.0.0",
+    "main": "dist/main.js",
+    "scripts": {
+        "test": "jest",
+        "start": "npm run build && electron .",
+        "build": "tsc",
+        "postbuild": "copyfiles -u 1 src/index.html dist"
+    },
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "@types/jest": "^29.5.12",
+        "copyfiles": "^2.4.1",
+        "electron": "^30.0.4",
+        "jest": "^29.7.0",
+        "ts-jest": "^29.1.2"
+    }
+}
