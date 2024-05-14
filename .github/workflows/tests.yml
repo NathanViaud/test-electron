@@ -19,3 +19,11 @@ jobs:
         with:
           name: test-results
           path: ./junit.xml
+      - name: Publish test results
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Test Report
+          path: ./junit.xml
+          reporter: junit
+          github-token: ${{ secrets.GITHUB_TOKEN }}
