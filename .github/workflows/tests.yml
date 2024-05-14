@@ -14,3 +14,8 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: ./junit.xml
