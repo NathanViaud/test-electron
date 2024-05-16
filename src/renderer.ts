@@ -1,16 +1,10 @@
-function performDivision(): void {
-    const numeratorInput = document.getElementById('numerator') as HTMLInputElement;
-    const denominatorInput = document.getElementById('denominator') as HTMLInputElement;
+import { Transaction, TransactionSchema } from './types';
+
+export function validateForm(form: any) {
+    const result = TransactionSchema.safeParse(form);
     
-    const numerator = parseFloat(numeratorInput.value);
-    const denominator = parseFloat(denominatorInput.value);
+    if(form.date > new Date()) return false;
+    if(form.amount < 0) return false;
     
-    const resultElement = document.getElementById('result') as HTMLDivElement;
-    
-    if (denominator === 0) {
-        resultElement.innerText = 'Error: Cannot divide by zero';
-    } else {
-        const result = numerator / denominator;
-        resultElement.innerText = `Result: ${result}`
-    }
+    return result.success;
 }
