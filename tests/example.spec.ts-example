@@ -1,0 +1,26 @@
+import { test, expect, ElectronApplication, Page } from '@playwright/test';
+import { _electron as electron } from 'playwright';
+
+let electronApp: ElectronApplication;
+let window: any;
+
+function sleep(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+test.describe('Testing Electron App', () => {
+    test.beforeAll(async () => {
+        electronApp = await electron.launch({ args: ['dist/main.js'] });
+        
+        window = await electronApp.firstWindow();
+    });
+    
+    test.afterAll(async () => {
+        await electronApp.close();
+    });
+    
+    test('Window should be visible', async () => {
+        await sleep(5000);
+        expect(await window.isVisible()).toBe(true);
+    });
+})
